@@ -88,8 +88,9 @@ export function TopBar({
             ₦
           </div>
           <div className="min-w-0">
-            <h1 className="truncate text-[14px] font-extrabold leading-tight tracking-[-0.01em] text-ink sm:text-[16px]">
-              ₦40K STUDENT KITCHEN
+            <h1 className="whitespace-nowrap text-[14px] font-extrabold leading-tight tracking-[-0.01em] text-ink sm:text-[16px]">
+              <span className="sm:hidden">₦40K KITCHEN</span>
+              <span className="hidden sm:inline">₦40K STUDENT KITCHEN</span>
             </h1>
             <p className="hidden text-[10.5px] font-medium text-ink-soft sm:block">
               Lagos • 30 days • 60 meals • No fridge

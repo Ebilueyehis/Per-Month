@@ -147,11 +147,11 @@ export function DayStepper({
       </button>
       <span
         className={cn(
-          'text-center font-extrabold uppercase tracking-[0.1em] text-ink tabular-nums',
-          compact ? 'min-w-[54px] text-[10px]' : 'min-w-[74px] text-[11px]',
+          'text-center font-extrabold uppercase text-ink tabular-nums whitespace-nowrap',
+          compact ? 'min-w-[42px] text-[10px] tracking-[0.02em]' : 'min-w-[74px] text-[11px] tracking-[0.1em]',
         )}
       >
-        Day {String(day).padStart(2, '0')} / 30
+        {compact ? `${String(day).padStart(2, '0')} / 30` : `Day ${String(day).padStart(2, '0')} / 30`}
       </span>
       <button
         onClick={() => setDay(Math.min(30, day + 1))}

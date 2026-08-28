@@ -50,6 +50,7 @@ export default function App() {
               <TodayCard {...todayProps} />
               <ChecklistCard day={day} done={done} toggle={toggle} />
               <BuyTodayCard day={day} done={done} toggle={toggle} />
+              <ProteinCard day={day} />
             </div>
 
             {/* ---- column 2 : calendar + weeks ---- */}
@@ -57,20 +58,23 @@ export default function App() {
               <SectionHeading eyebrow="Plan" title="30-day calendar" hint="Tap a day to load it" />
               <PlanSummary day={day} />
               <CalendarCard day={day} setDay={setDay} />
-              <SectionHeading eyebrow="Cash flow" title="Weekly spending" />
-              <WeeklyBoard day={day} />
             </div>
 
             {/* ---- column 3 : kitchen ---- */}
             <div id="section-kitchen" className="scroll-mt-20 space-y-4">
               <SectionHeading eyebrow="Stores" title="Kitchen inventory" hint="Not on the ₦40K" />
               <PantryCard day={day} />
-              <ProteinCard day={day} />
               <RestockCard day={day} />
               <KitchenSetupCard />
               <GarriCard day={day} />
               <NoFridgeCard />
             </div>
+          </div>
+
+          {/* ---- weekly spending ---- */}
+          <div className="space-y-4">
+            <SectionHeading eyebrow="Cash flow" title="Weekly spending" />
+            <WeeklyBoard day={day} layout="row" />
           </div>
 
           {/* ---- market ---- */}

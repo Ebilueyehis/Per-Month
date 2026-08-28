@@ -445,9 +445,15 @@ export function BuyTodayCard({
 /* ------------------------------------------------------------------ */
 /*  WEEKLY SPENDING                                                    */
 /* ------------------------------------------------------------------ */
-export function WeeklyBoard({ day }: { day: number }) {
+export function WeeklyBoard({
+  day,
+  layout = 'stack',
+}: {
+  day: number;
+  layout?: 'stack' | 'row';
+}) {
   return (
-    <div className="space-y-2">
+    <div className={layout === 'row' ? 'grid gap-3 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5' : 'space-y-2'}>
       {[1, 2, 3, 4].map((w) => {
         const [a, b] = WEEK_RANGES[w - 1];
         const target = weekTarget(w);

@@ -110,19 +110,22 @@ export function CalendarCard({
           <Pill tone="leaf">{30 - day} days left</Pill>
         </div>
 
-        <div className="no-scrollbar -mx-1 mt-2.5 flex gap-1.5 overflow-x-auto px-1 pb-1">
-          {FILTERS.map((f) => (
-            <button
-              key={f}
-              onClick={() => setFilter(f)}
-              className={cn(
-                'shrink-0 rounded-full border px-2.5 py-1 text-[9.5px] font-bold uppercase tracking-wider transition',
-                filter === f ? 'border-ink bg-ink text-white' : 'border-line bg-white text-ink-soft',
-              )}
-            >
-              {f === 'ALL' ? 'All' : f === 'FISH' ? 'Fish*' : f}
-            </button>
-          ))}
+        <div className="relative mt-2.5">
+          <div className="no-scrollbar -mx-1 flex gap-1.5 overflow-x-auto px-1 pb-1">
+            {FILTERS.map((f) => (
+              <button
+                key={f}
+                onClick={() => setFilter(f)}
+                className={cn(
+                  'shrink-0 rounded-full border px-2.5 py-1 text-[9.5px] font-bold uppercase tracking-wider transition',
+                  filter === f ? 'border-ink bg-ink text-white' : 'border-line bg-white text-ink-soft',
+                )}
+              >
+                {f === 'ALL' ? 'All' : f === 'FISH' ? 'Fish*' : f}
+              </button>
+            ))}
+          </div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-white to-transparent" />
         </div>
       </div>
 
