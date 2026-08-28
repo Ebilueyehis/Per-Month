@@ -12,8 +12,7 @@ import {
 import { Bar, Card, Label, Pill, SectionTitle } from '../components/Primitives';
 import { cn } from '../utils/cn';
 
-const fmt = (key: string, v: number) =>
-  key === 'oil' ? Math.round(v).toLocaleString('en-US') : v.toFixed(1);
+const fmt = (v: number) => Math.round(v).toLocaleString('en-US');
 
 /* ------------------------------------------------------------------ */
 /*  PANTRY INVENTORY                                                   */
@@ -48,10 +47,10 @@ export function PantryCard({ day }: { day: number }) {
             </div>
             <div className="mt-1 flex items-baseline gap-1">
               <span className="text-[19px] font-extrabold leading-none tabular-nums text-ink">
-                {fmt(p.key, p.left)}
+                {fmt(p.left)}
               </span>
               <span className="text-[10px] font-medium text-ink-soft">
-                of {fmt(p.key, p.owned + p.added)}
+                of {fmt(p.owned + p.added)}
               </span>
             </div>
             <div className="mt-1.5">
@@ -62,7 +61,7 @@ export function PantryCard({ day }: { day: number }) {
             </div>
             <div className="mt-1.5 flex flex-wrap items-center justify-between gap-1">
               <span className="text-[9.5px] font-medium text-ink-soft">
-                Used {fmt(p.key, p.used)}
+                Used {fmt(p.used)}
               </span>
               {p.safe ? (
                 <Pill tone="leaf">Lasts the month</Pill>
@@ -113,7 +112,7 @@ export function RestockCard({ day }: { day: number }) {
                 className="flex items-center justify-between rounded-lg bg-[#F7F6F1] px-2.5 py-2"
               >
                 <span className="text-[11.5px] font-medium text-ink">
-                  Buy {fmt(t.key, t.amount)} {item.unit} of {item.label.toLowerCase()}
+                  Buy {fmt(t.amount)} {item.unit} of {item.label.toLowerCase()}
                 </span>
                 <span className="text-[11px] font-bold tabular-nums text-ink-soft">
                   Day {pad(t.day)}
@@ -268,7 +267,7 @@ export function GarriCard({ day }: { day: number }) {
         <h3 className="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-[#7A5B10]">
           Emergency backup — garri
         </h3>
-        <Pill tone="amber">{garri.left.toFixed(1)} paints left</Pill>
+        <Pill tone="amber">{Math.round(garri.left)} paints left</Pill>
       </div>
       <p className="mt-1.5 text-[11px] leading-snug text-[#6B5334]">
         Garri is not a planned meal. Keep it as the backup for a day with no money, no gas or no
